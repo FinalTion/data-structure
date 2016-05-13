@@ -7,31 +7,8 @@ typedef struct _tag_SeqList
 {
 	int capacity;
 	int length;
-	unsigned int *node ; // unsigned int nodeAarry[100]
-	//void *node ;
+	unsigned int *node ; 
 }TSeqList;
-
-//typdef的意思 把void 重新命名成SeqList
-
-/*
-void * SeqList_Create2(int capacity)
-{
-	TSeqList *ret = NULL;
-	ret = (TSeqList *)malloc(sizeof(TSeqList));
-	if (ret == NULL)
-	{
-		return NULL;
-	}
-	ret->capacity = capacity;
-	ret->node = (unsigned int *)malloc(sizeof(unsigned int ) * capacity);
-	if (ret->node == NULL)
-	{
-		return NULL;
-	}
-	ret->length = 0;
-	return ret;
-}
-*/
 
 void * SeqList_Create(int capacity)
 {
@@ -156,7 +133,7 @@ SeqListNode* SeqList_Delete(SeqList* list, int pos)
 	int i = 0;
 	TSeqList *tlist = list;
 	SeqListNode* ret = NULL;
-	if (list == NULL || pos<0 || pos>tlist->length)
+	if (list == NULL || pos<0 || pos >= tlist->length)
 	{
 		return NULL;
 	}
